@@ -1,8 +1,7 @@
 {
   "name": "ts-builder",
-  "version": "0.0.28",
-  "description": "",
-  "scripts": {},
+  "version": "0.1.0",
+  "description": "Module to build ts projects (was specially made for ClusterWS)",
   "bin": {
     "ts-builder": "./bin/ts-builder.js"
   },

@@ -7,13 +7,13 @@ const TSLintPlugin = require('tslint-webpack-plugin')
 
 let configs = {
     entry: {
-        'index': path.join(__dirname, '../../src/index.ts')
+        'index': path.join(__dirname, '../../../src/index.ts')
     },
     resolve: {
         extensions: [".ts"]
     },
     output: {
-        path: path.join(__dirname, '../../dist'),
+        path: path.join(__dirname, '../../../dist'),
         filename: '[name].js',
         libraryTarget: 'commonjs2'
     },
@@ -25,7 +25,7 @@ let configs = {
                 test: /\.ts$/,
                 loader: 'awesome-typescript-loader',
                 options: {
-                    configFileName: path.join(__dirname, './tsconfig.json')
+                    configFileName: path.join(__dirname, '../tsconfig.json')
                 }
             }
         ]
@@ -45,7 +45,7 @@ let configs = {
         }]),
         new TSLintPlugin({
             typeCheck: true,
-            config: path.join(__dirname, './tslint.json'),
+            config: path.join(__dirname, '../tslint.json'),
             files: ['./src/**/*.ts']
         })
     ]
