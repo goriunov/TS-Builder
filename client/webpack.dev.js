@@ -1,7 +1,7 @@
 const path = require('path')
 const webpack = require('webpack')
-const nodeExternals = require('webpack-node-externals')
 const TSLintPlugin = require('tslint-webpack-plugin')
+const fs = require('fs')
 
 const configs = {
     entry: {
@@ -15,7 +15,7 @@ const configs = {
         filename: '[name].js',
         libraryTarget: 'umd'
     },
-    externals: [nodeExternals()],
+    externals: fs.readdirSync("../../node_modules"),
     module: {
         loaders: [
             {

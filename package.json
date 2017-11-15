@@ -1,21 +1,22 @@
 {
   "name": "ts-builder",
-  "version": "0.1.4",
+  "version": "0.2.0",
   "description": "Module to build ts projects (was specially made for ClusterWS)",
+  "scripts": {
+    "webpack": "webpack"
+  },
   "bin": {
     "ts-builder": "./bin/ts-builder.js"
   },
-  "author": "",
+  "author": "Dmitrii Goriunov",
   "license": "ISC",
   "dependencies": {
     "awesome-typescript-loader": "^3.2.3",
-    "copy-pkg-json-webpack-plugin": "0.0.29",
     "copy-webpack-plugin": "^4.1.0",
     "shelljs": "^0.7.8",
     "tslint": "^5.8.0",
     "tslint-webpack-plugin": "^1.0.0",
     "typescript": "^2.5.3",
-    "webpack": "^3.6.0",
-    "webpack-node-externals": "^1.6.0"
+    "webpack": "^3.6.0"
   }
 }

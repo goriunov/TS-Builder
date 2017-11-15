@@ -1,9 +1,8 @@
 const path = require('path')
 const webpack = require('webpack')
-const nodeExternals = require('webpack-node-externals')
 const TSLintPlugin = require('tslint-webpack-plugin')
-const CopyPkgJsonPlugin = require("copy-pkg-json-webpack-plugin")
 const CopyWebpackPlugin = require("copy-webpack-plugin")
+const fs = require('fs')
 
 const configs = {
     entry: {
@@ -17,7 +16,7 @@ const configs = {
         filename: '[name].js',
         libraryTarget: 'umd'
     },
-    externals: [nodeExternals()],
+    externals: fs.readdirSync("../../node_modules"),
     module: {
         loaders: [
             {
@@ -40,10 +39,20 @@ const configs = {
             comments: false,
             beautify: true
         }),
-        new CopyPkgJsonPlugin({
-            remove: ['devDependencies', 'scripts']
-        }),
-        new CopyWebpackPlugin([{ from: 'README.md' }])
+        new CopyWebpackPlugin([
+            {
+                from: '../../README.md'
+            },
+            {
+                from: '../../package.json',
+                transform: (content) => {
+                    const json = JSON.parse(content.toString('utf8'))
+                    delete json['devDependencies']
+                    delete json['scripts']
+                    return Buffer.from(JSON.stringify(json, null, '\t'))
+                }
+            }
+        ])
     ]
 }
 

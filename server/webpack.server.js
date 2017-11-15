@@ -1,9 +1,8 @@
 const path = require('path')
 const webpack = require('webpack')
-const nodeExternals = require('webpack-node-externals')
-const CopyPkgJsonPlugin = require("copy-pkg-json-webpack-plugin")
 const CopyWebpackPlugin = require("copy-webpack-plugin")
 const TSLintPlugin = require('tslint-webpack-plugin')
+const fs = require('fs')
 
 let configs = {
     entry: {
@@ -18,7 +17,7 @@ let configs = {
         libraryTarget: 'commonjs2'
     },
     target: 'node',
-    externals: [nodeExternals()],
+    externals: fs.readdirSync("../../node_modules"),
     module: {
         loaders: [
             {
@@ -37,12 +36,20 @@ let configs = {
         new webpack.optimize.UglifyJsPlugin({
             beautify: true
         }),
-        new CopyPkgJsonPlugin({
-            remove: ['devDependencies', 'scripts']
-        }),
-        new CopyWebpackPlugin([{
-            from: 'README.md'
-        }]),
+        new CopyWebpackPlugin([
+            {
+                from: '../../README.md'
+            },
+            {
+                from: '../../package.json',
+                transform: (content) => {
+                    const json = JSON.parse(content.toString('utf8'))
+                    delete json['devDependencies']
+                    delete json['scripts']
+                    return Buffer.from(JSON.stringify(json, null, '\t'))
+                }
+            }
+        ]),
         new TSLintPlugin({
             typeCheck: true,
             config: path.join(__dirname, '../tslint.json'),
