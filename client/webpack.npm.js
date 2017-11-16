@@ -33,7 +33,7 @@ const configs = {
         new TSLintPlugin({
             typeCheck: true,
             config: path.join(__dirname, '../tslint.json'),
-            files: ['./src/**/*.ts']
+            files: ['../../src/**/*.ts']
         }),
         new webpack.optimize.UglifyJsPlugin({
             comments: false,
