@@ -53,7 +53,7 @@ let configs = {
         new TSLintPlugin({
             typeCheck: true,
             config: path.join(__dirname, '../tslint.json'),
-            files: ['./src/**/*.ts']
+            files: ['../../src/**/*.ts']
         })
     ]
 }
