@@ -1,6 +1,7 @@
 {
     "extends": "tslint:recommended",
     "rules": {
+        "no-unused-expression": false,
         "eofline": false,
         "ordered-imports": false,
         "quotemark": [
@@ -13,7 +14,7 @@
         "trailing-comma": [
             false
         ],
-        "max-line-length": [true, 150],
+        "max-line-length": [true, 200],
         "no-any": false,
         "no-empty-interface": true,
         "only-arrow-functions": [
