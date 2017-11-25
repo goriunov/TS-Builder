@@ -59,7 +59,6 @@ const configs = {
 }
 
 
-
 function DtsBundlePlugin() { }
 DtsBundlePlugin.prototype.apply = function (compiler) {
     compiler.plugin('done', function () {
