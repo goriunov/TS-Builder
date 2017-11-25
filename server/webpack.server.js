@@ -30,6 +30,7 @@ let configs = {
         ]
     },
     plugins: [
+        new DtsBundlePlugin(),
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': 'production'
         }),
@@ -44,6 +45,7 @@ let configs = {
                 from: '../../package.json',
                 transform: (content) => {
                     const json = JSON.parse(content.toString('utf8'))
+                    json['types'] = './index.d.ts'
                     delete json['devDependencies']
                     delete json['scripts']
                     return Buffer.from(JSON.stringify(json, null, '\t'))
@@ -56,6 +58,25 @@ let configs = {
             files: ['../../src/**/*.ts']
         })
     ]
+}
+
+
+function DtsBundlePlugin() { }
+DtsBundlePlugin.prototype.apply = function (compiler) {
+    compiler.plugin('done', function () {
+        var dts = require('dts-bundle')
+
+        dts.bundle({
+            headerTex: "",
+            externals: false,
+            referenceExternals: false,
+            name: "ClusterWS",
+            main: '../../src/**/*.d.ts',
+            out: '../dist/index.d.ts',
+            removeSource: true,
+            outputAsModuleFolder: true
+        })
+    })
 }
 
 module.exports = configs

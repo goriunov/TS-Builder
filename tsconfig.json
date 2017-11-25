@@ -4,7 +4,8 @@
         "module": "commonjs",
         "strict": true,
         "removeComments": true,
-        "moduleResolution": "node"
+        "moduleResolution": "node",
+        "declaration": true
     },
     "files": [
         "../@types/node/index.d.ts",

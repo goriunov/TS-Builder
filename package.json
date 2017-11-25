@@ -1,6 +1,6 @@
 {
   "name": "ts-builder",
-  "version": "0.2.8",
+  "version": "0.2.15",
   "description": "Module to build ts projects (was specially made for ClusterWS)",
   "scripts": {
     "webpack": "webpack"
@@ -13,6 +13,7 @@
   "dependencies": {
     "awesome-typescript-loader": "^3.2.3",
     "copy-webpack-plugin": "^4.1.0",
+    "dts-bundle": "^0.7.3",
     "shelljs": "^0.7.8",
     "tslint": "^5.8.0",
     "tslint-webpack-plugin": "^1.0.0",
