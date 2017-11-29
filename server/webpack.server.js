@@ -67,14 +67,14 @@ DtsBundlePlugin.prototype.apply = function (compiler) {
         var dts = require('dts-bundle')
 
         dts.bundle({
-            headerTex: "",
             externals: false,
             referenceExternals: false,
-            name: "ClusterWS",
+            name: "index",
             main: '../../src/**/*.d.ts',
             out: '../dist/index.d.ts',
             removeSource: true,
-            outputAsModuleFolder: true
+            outputAsModuleFolder: true,
+            emitOnIncludedFileNotFound: true
         })
     })
 }
