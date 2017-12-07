@@ -50,6 +50,9 @@ let configs = {
                     delete json['scripts']
                     return Buffer.from(JSON.stringify(json, null, '\t'))
                 }
+            },
+            {
+                from: '../../LICENSE'
             }
         ]),
         new TSLintPlugin({
