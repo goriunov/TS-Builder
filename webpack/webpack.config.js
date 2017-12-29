@@ -9,14 +9,14 @@ const configs = {
     resolve: {
         extensions: [".ts"]
     },
-    output:{
+    output: {
         path: process.env.output,
         libraryTarget: 'umd',
         filename: process.env.name || 'index.js'
     },
     externals: fs.readdirSync('../../node_modules'),
     module: {
-        loaders: [ 
+        loaders: [
             {
                 test: /\.ts$/,
                 loader: 'awesome-typescript-loader',
@@ -29,13 +29,13 @@ const configs = {
     plugins: []
 }
 
-if(process.env.node){
+if (process.env.node) {
     configs.target = 'node',
-    configs.output.libraryTarget = 'commonjs2',        
-    configs.plugins.push(new webpack.DefinePlugin({'process.env.NODE_ENV': 'production'}))
+        configs.output.libraryTarget = 'commonjs2',
+        configs.plugins.push(new webpack.DefinePlugin({ 'process.env.NODE_ENV': 'production' }))
 }
 
-if(process.env.production){
+if (process.env.production) {
     configs.plugins.push(
         new TSLintPlugin({
             typeCheck: true,
@@ -48,31 +48,31 @@ if(process.env.production){
         new webpack.optimize.UglifyJsPlugin({
             beautify: process.env.beautify
         })
-    )    
+    )
 }
 
-if(process.env.npm){
+if (process.env.npm) {
     configs.plugins.push(
-            new CopyWebpackPlugin([
-                {
-                    from: '../../README.md'
-                },
-                {
-                    from: '../../package.json',
-                    transform: (content) => {
-                        const json = JSON.parse(content.toString('utf8'))
-                        json['types'] = './index.d.ts'
-                        delete json['devDependencies']
-                        delete json['scripts']
-                        return Buffer.from(JSON.stringify(json, null, '\t'))
-                    }
-                },
-                {
-                    from: '../../LICENSE'
+        new CopyWebpackPlugin([
+            {
+                from: '../../README.md'
+            },
+            {
+                from: '../../package.json',
+                transform: (content) => {
+                    const json = JSON.parse(content.toString('utf8'))
+                    json['types'] = './index.d.ts'
+                    delete json['devDependencies']
+                    delete json['scripts']
+                    return Buffer.from(JSON.stringify(json, null, '\t'))
                 }
+            },
+            {
+                from: '../../LICENSE'
+            }
         ])
     )
-    
+
 }
 
 function DtsBundlePlugin() { }
@@ -85,7 +85,7 @@ DtsBundlePlugin.prototype.apply = function (compiler) {
             referenceExternals: false,
             name: "index",
             main: '../../src/**/*.d.ts',
-            out: '../dist/index.d.ts',
+            out: '../' + process.env.output + '/index.d.ts',
             removeSource: true,
             outputAsModuleFolder: true,
             emitOnIncludedFileNotFound: true
