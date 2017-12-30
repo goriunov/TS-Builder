@@ -1,6 +1,6 @@
 {
   "name": "ts-builder",
-  "version": "0.3.1",
+  "version": "0.3.3",
   "description": "Module to build typescript project with Webpack",
   "main": "index.js",
   "scripts": {

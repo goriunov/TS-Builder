@@ -23,8 +23,8 @@ args.forEach(arg => {
         case '-prod': return crossEnv += ' production=true '
         case '-beauty': return crossEnv += ' beautify=true '
         case '-npm': return crossEnv += ' npm=true '
-        case '-node': return crossEnv += ' node=true ' 
-        case '-name': return crossEnv += ' name=' + args[args.indexOf('-name')+1] + ' '
+        case '-node': return crossEnv += ' isNode=true '
+        case '-name': return crossEnv += ' name=' + args[args.indexOf('-name') + 1] + ' '
         default: break
     }
 })

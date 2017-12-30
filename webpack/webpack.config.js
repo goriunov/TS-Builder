@@ -29,10 +29,10 @@ const configs = {
     plugins: []
 }
 
-if (process.env.node) {
-    configs.target = 'node',
-        configs.output.libraryTarget = 'commonjs2',
-        configs.plugins.push(new webpack.DefinePlugin({ 'process.env.NODE_ENV': 'production' }))
+if (process.env.isNode) {
+    configs.target = 'node'
+    configs.output.libraryTarget = 'commonjs2'
+    configs.plugins.push(new webpack.DefinePlugin({ 'process.env.NODE_ENV': 'production' }))
 }
 
 if (process.env.production) {
@@ -85,7 +85,7 @@ DtsBundlePlugin.prototype.apply = function (compiler) {
             referenceExternals: false,
             name: "index",
             main: '../../src/**/*.d.ts',
-            out: '../' + process.env.output + '/index.d.ts',
+            out: '../dist/index.d.ts',
             removeSource: true,
             outputAsModuleFolder: true,
             emitOnIncludedFileNotFound: true
