@@ -3,7 +3,7 @@ const path = require('path')
 const rollup = require('rollup').rollup
 const uglify = require('rollup-plugin-uglify')
 const filesize = require('rollup-plugin-filesize')
-const typescriptPlugin = require('rollup-plugin-typescript2')    
+const typescriptPlugin = require('rollup-plugin-typescript2')
 
 const options = {
     compilerOptions: {
@@ -36,6 +36,9 @@ const copyPlugin = function (options) {
     return {
         ongenerate() {
             const targDir = path.dirname(options.targ);
+            if (!fs.existsSync(options.src)) {
+                options.src = options.src.replace('./', './.github/')
+            }
             if (!fs.existsSync(targDir)) {
                 fs.mkdirSync(targDir)
             }
