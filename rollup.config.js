@@ -3,8 +3,7 @@ const path = require('path')
 const rollup = require('rollup').rollup
 const uglify = require('rollup-plugin-uglify')
 const filesize = require('rollup-plugin-filesize')
-const typescriptPlugin = require('rollup-plugin-typescript2')
-
+const typescriptPlugin = require('rollup-plugin-typescript2')    
 
 const options = {
     compilerOptions: {
