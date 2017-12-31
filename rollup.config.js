@@ -38,6 +38,9 @@ const copyPlugin = function (options) {
             const targDir = path.dirname(options.targ);
             if (!fs.existsSync(options.src)) {
                 options.src = options.src.replace('./', './.github/')
+                if (!fs.existsSync(options.src)) {
+                    options.src = options.src.replace('./.github/', './docs/')
+                }
             }
             if (!fs.existsSync(targDir)) {
                 fs.mkdirSync(targDir)
