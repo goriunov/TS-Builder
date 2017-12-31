@@ -1,26 +1,23 @@
 {
-  "name": "ts-builder",
-  "version": "0.3.3",
-  "description": "Module to build typescript project with Webpack",
-  "main": "index.js",
-  "scripts": {
-    "webpack": "webpack",
-    "cross-env": "cross-env"
-  },
-  "bin": {
-    "ts-builder": "./bin/ts.builder.js"
-  },
-  "author": "Dmitrii Goriunov",
-  "license": "ISC",
-  "dependencies": {
-    "awesome-typescript-loader": "^3.4.1",
-    "copy-webpack-plugin": "^4.3.1",
-    "cross-env": "^5.1.3",
-    "dts-bundle": "^0.7.3",
-    "shelljs": "^0.7.8",
-    "tslint": "^5.8.0",
-    "tslint-webpack-plugin": "^1.0.0",
-    "typescript": "^2.6.2",
-    "webpack": "^3.10.0"
-  }
+    "name": "ts-builder",
+    "version": "0.5.5",
+    "description": "Module to build typescript project with Rollup",
+    "main": "index.js",
+    "scripts": {},
+    "bin": {
+        "ts-builder": "./bin/ts-builder.js"
+    },
+    "author": "Dmitrii Goriunov",
+    "license": "ISC",
+    "dependencies": {
+        "cross-env": "^5.1.3",
+        "dts-bundle": "^0.7.3",
+        "rollup": "^0.53.1",
+        "rollup-plugin-filesize": "^1.5.0",
+        "rollup-plugin-typescript2": "^0.9.0",
+        "rollup-plugin-uglify": "^2.0.1",
+        "shelljs": "^0.7.8",
+        "tslint": "^5.8.0",
+        "typescript": "^2.6.2"
+    }
 }
