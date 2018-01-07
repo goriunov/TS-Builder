@@ -87,7 +87,7 @@ return rollup({
         }),
         filesize()
     ],
-    external: ['cluster', 'http', 'https', 'uws']
+    external: ['cluster', 'http', 'https', 'uws', 'crypto']
 }).then((bundle) => {
     bundle.write({ format: process.env.format || 'cjs', file: './' + process.env.outfolder + '/' + process.env.outfile, name: process.env.name || 'ClusterWS' }).then(() => {
         if (process.env.npm) {

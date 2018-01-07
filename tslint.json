@@ -18,6 +18,11 @@
             true,
             150
         ],
+        "member-ordering": [true, {"order": "instance-sandwich"}],
+        "interface-name": [
+            true,
+            "never-prefix"
+        ],
         "no-any": false,
         "no-empty-interface": true,
         "only-arrow-functions": [
