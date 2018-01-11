@@ -83,6 +83,7 @@
         "jsdoc-format": true,
         "newline-before-return": false,
         "no-unnecessary-callback-wrapper": true,
+        "object-literal-sort-keys": false,
         "object-literal-shorthand": true,
         "object-literal-key-quotes": [
             true,

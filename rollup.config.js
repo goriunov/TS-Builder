@@ -5,6 +5,17 @@ const uglify = require('rollup-plugin-uglify')
 const filesize = require('rollup-plugin-filesize')
 const typescriptPlugin = require('rollup-plugin-typescript2')
 
+
+function addDefaultExports (){
+    return {
+        name: 'add_export',
+
+        transformBundle(code) {
+            return code.replace('module.exports = ClusterWS;', 'module.exports = ClusterWS; module.exports.default = ClusterWS;')
+        }
+    };
+}
+
 const options = {
     compilerOptions: {
         target: "es5",
@@ -66,6 +77,7 @@ return rollup({
             cacheRoot: './node_modules/ts-builder/cache',
             tsconfigOverride: options
         }),
+        addDefaultExports(),
         uglify({
             mangle: true,
             output: {
