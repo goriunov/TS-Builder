@@ -11,7 +11,14 @@ function addDefaultExports (){
         name: 'add_export',
 
         transformBundle(code) {
-            return code.replace('module.exports = ClusterWS;', 'module.exports = ClusterWS; module.exports.default = ClusterWS;')
+            let nameOfTheModule = code.split('module.exports =')[1]
+            let result = code
+            let matchingModules = code.match(/(module.exports =(.*);)/g)
+            for(let i = 0; i< matchingModules.length; i++){
+                let name = matchingModules[i].split('module.exports =')[1]
+                result = result.replace('module.exports =' + name, 'module.exports =' + name + ' module.exports.default ='+ name)
+            }
+            return result
         }
     };
 }
