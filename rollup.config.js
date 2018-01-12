@@ -6,7 +6,7 @@ const filesize = require('rollup-plugin-filesize')
 const typescriptPlugin = require('rollup-plugin-typescript2')
 
 
-function addDefaultExports (){
+function addDefaultExports() {
     return {
         name: 'add_export',
 
@@ -14,9 +14,11 @@ function addDefaultExports (){
             let nameOfTheModule = code.split('module.exports =')[1]
             let result = code
             let matchingModules = code.match(/(module.exports =(.*);)/g)
-            for(let i = 0; i< matchingModules.length; i++){
-                let name = matchingModules[i].split('module.exports =')[1]
-                result = result.replace('module.exports =' + name, 'module.exports =' + name + ' module.exports.default ='+ name)
+            if (matchingModules) {
+                for (let i = 0; i < matchingModules.length; i++) {
+                    let name = matchingModules[i].split('module.exports =')[1]
+                    result = result.replace('module.exports =' + name, 'module.exports =' + name + ' module.exports.default =' + name)
+                }
             }
             return result
         }
