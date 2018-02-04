@@ -5,26 +5,6 @@ const uglify = require('rollup-plugin-uglify')
 const filesize = require('rollup-plugin-filesize')
 const typescriptPlugin = require('rollup-plugin-typescript2')
 
-
-function addDefaultExports() {
-    return {
-        name: 'add_export',
-
-        transformBundle(code) {
-            let nameOfTheModule = code.split('module.exports =')[1]
-            let result = code
-            let matchingModules = code.match(/(module.exports =(.*);)/g)
-            if (matchingModules) {
-                for (let i = 0; i < matchingModules.length; i++) {
-                    let name = matchingModules[i].split('module.exports =')[1]
-                    result = result.replace('module.exports =' + name, 'module.exports =' + name + ' module.exports.default =' + name)
-                }
-            }
-            return result
-        }
-    };
-}
-
 const options = {
     compilerOptions: {
         target: "es5",
@@ -52,6 +32,25 @@ if (!process.env.isNode) {
     delete options['files']
 }
 
+function addDefaultExports() {
+    return {
+        name: 'add_export',
+
+        transformBundle(code) {
+            let nameOfTheModule = code.split('module.exports =')[1]
+            let result = code
+            let matchingModules = code.match(/(module.exports =(.*);)/g)
+            if (matchingModules) {
+                for (let i = 0; i < matchingModules.length; i++) {
+                    let name = matchingModules[i].split('module.exports =')[1]
+                    result = result.replace('module.exports =' + name, 'module.exports =' + name + ' module.exports.default =' + name)
+                }
+            }
+            return result
+        }
+    };
+}
+
 const copyPlugin = function (options) {
     return {
         ongenerate() {
@@ -65,6 +64,7 @@ const copyPlugin = function (options) {
             if (!fs.existsSync(targDir)) {
                 fs.mkdirSync(targDir)
             }
+
             if (options.remove) {
                 let json = fs.readFileSync(options.src)
                 let parsed = JSON.parse(json)
