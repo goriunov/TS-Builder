@@ -21,4 +21,4 @@ args.forEach(arg => {
     }
 })
 
-shell.exec('tslint -c ./node_modules/ts-builder/tslint.json ./' + args[args.indexOf('-folder') + 1] + '/**/*.ts && ' + crossEnv + ' node ./node_modules/ts-builder/rollup.config.js --color')
+shell.exec('tslint -c ./node_modules/ts-builder/tslint.json "./' + args[args.indexOf('-folder') + 1] + '/**/*.ts" && ' + crossEnv + ' node ./node_modules/ts-builder/rollup.config.js --color')
