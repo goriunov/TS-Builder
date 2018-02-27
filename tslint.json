@@ -39,7 +39,7 @@
                 "named": "never"
             }
         ],
-        "no-parameter-reassignment": true,
+        "no-parameter-reassignment": false,
         "align": [
             true,
             "arguments",
