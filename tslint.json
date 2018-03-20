@@ -92,6 +92,7 @@
     "variable-name": [true, "check-format"],
     "no-this-assignment": true,
     "import-name": false,
-    "insecure-random": false
+    "insecure-random": false,
+    "linebreak-style": false
   }
 }

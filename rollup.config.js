@@ -8,7 +8,7 @@ const typescriptPlugin = require('rollup-plugin-typescript2')
 const options = {
     compilerOptions: {
         target: "es5",
-        module: "commonjs",
+        module: "ES2015",
         removeComments: true,
         moduleResolution: "node",
         declaration: true,
