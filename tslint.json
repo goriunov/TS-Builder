@@ -1,21 +1,35 @@
 {
-  "extends": ["tslint-consistent-codestyle", "tslint-eslint-rules", "tslint-microsoft-contrib"],
+  "extends": [
+    "tslint-consistent-codestyle",
+    "tslint-eslint-rules",
+    "tslint-microsoft-contrib"
+  ],
   "rules": {
     "no-console": false,
     "no-default-export": false,
     "newline-before-return": false,
     "no-relative-imports": false,
-    "interface-name": [true, "never-prefix"],
+    "interface-name": [
+      true,
+      "never-prefix"
+    ],
     "no-any": false,
     "missing-jsdoc": false,
     "prefer-const": true,
     "no-var-keyword": true,
     "object-literal-shorthand": true,
     "object-shorthand-properties-first": true,
-    "object-literal-key-quotes": [true, "as-needed"],
+    "object-literal-key-quotes": [
+      true,
+      "as-needed"
+    ],
     "ordered-imports": false,
     "prefer-array-literal": true,
-    "quotemark": [true, "single", "jsx-double"],
+    "quotemark": [
+      true,
+      "single",
+      "jsx-double"
+    ],
     "no-eval": true,
     "no-function-constructor-with-string-args": true,
     "space-before-function-paren": [
@@ -26,8 +40,14 @@
       }
     ],
     "no-parameter-reassignment": false,
-    "align": [true, "arguments", "parameters"],
-    "ter-prefer-arrow-callback": [true],
+    "align": [
+      true,
+      "arguments",
+      "parameters"
+    ],
+    "ter-prefer-arrow-callback": [
+      true
+    ],
     "arrow-parens": false,
     "ter-arrow-parens": [
       true,
@@ -37,9 +57,15 @@
       }
     ],
     "no-duplicate-imports": true,
-    "one-variable-per-declaration": [true, "ignore-for-loop"],
+    "one-variable-per-declaration": [
+      true,
+      "ignore-for-loop"
+    ],
     "no-increment-decrement": false,
-    "triple-equals": [true, "allow-null-check"],
+    "triple-equals": [
+      true,
+      "allow-null-check"
+    ],
     "no-boolean-literal-compare": true,
     "strict-boolean-expressions": [
       true,
@@ -58,8 +84,14 @@
       }
     ],
     "no-else-after-return": true,
-    "comment-format": [true, "check-space"],
-    "indent": [true, "space"],
+    "comment-format": [
+      true,
+      "check-space"
+    ],
+    "indent": [
+      true,
+      "space"
+    ],
     "ter-indent": [
       true,
       2,
@@ -67,29 +99,46 @@
         "SwitchCase": 1
       }
     ],
-    "whitespace": [true, "check-branch", "check-decl", "check-operator", "check-preblock"],
+    "whitespace": [
+      true,
+      "check-branch",
+      "check-decl",
+      "check-operator",
+      "check-preblock"
+    ],
     "export-name": false,
     "eofline": false,
-    "space-in-parens": [true, "never"],
-    "array-bracket-spacing": [true, "never"],
-    "object-curly-spacing": [true, "always"],
-    "max-line-length": [true, 180],
-    "trailing-comma": [false],
+    "space-in-parens": [
+      true,
+      "never"
+    ],
+    "array-bracket-spacing": [
+      true,
+      "never"
+    ],
+    "object-curly-spacing": [
+      true,
+      "always"
+    ],
+    "max-line-length": [
+      true,
+      180
+    ],
+    "trailing-comma": [
+      false
+    ],
     "type-literal-delimiter": false,
-    "semicolon": [true, "never"],
+    "semicolon": [
+      true,
+      "never"
+    ],
     "no-construct": true,
     "radix": true,
-    "function-name": [
+    "function-name": false,
+    "variable-name": [
       true,
-      {
-        "function-regex": {},
-        "method-regex": {},
-        "private-method-regex": {},
-        "protected-method-regex": {},
-        "static-method-regex": {}
-      }
+      "check-format"
     ],
-    "variable-name": [true, "check-format"],
     "no-this-assignment": true,
     "import-name": false,
     "insecure-random": false,
