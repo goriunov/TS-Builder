@@ -1,6 +1,6 @@
 {
     "name": "ts-builder",
-    "version": "0.6.10",
+    "version": "0.6.11",
     "description": "Module to build typescript project with Rollup",
     "main": "index.js",
     "bin": {
